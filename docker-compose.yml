@@ -1,0 +1,16 @@
+version: '3'
+services:
+  consul:
+    image: public.ecr.aws/hashicorp/consul:latest
+    container_name: consul-server
+    environment:
+      - ui
+      - server
+      - bootstrap
+      - client=0.0.0.0
+      - CONSUL_ALLOW_PRIVILEGED_PORTS=yes
+    ports:
+      - "8600:8600"
+      - "8500:8500"
+      - "8300:8300"
+    restart: unless-stopped

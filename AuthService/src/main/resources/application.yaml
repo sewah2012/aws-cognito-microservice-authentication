@@ -1,0 +1,12 @@
+server:
+  port: ${PORT:0}
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: auth-service
+  cloud:
+    consul:
+      host: localhost
+      port: 8500

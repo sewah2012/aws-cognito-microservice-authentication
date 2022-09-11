@@ -1,0 +1,40 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+    gateway:
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 30s
+        pool:
+          type: elastic
+          max-idle-time: 15s
+          max-life-time: 60s
+
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+          predicates:
+            - name: Path
+              args:
+                pattern: "'/api/' + serviceId + '/**'"
+
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: serviceId
+#                fallbackUri: "'forward:/fallback'"
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

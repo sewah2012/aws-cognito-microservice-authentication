@@ -1,0 +1,4 @@
+rootProject.name = 'amazon-cognito-microservice'
+include 'AuthService'
+include 'ConfigServer'
+include 'GatewayServer'

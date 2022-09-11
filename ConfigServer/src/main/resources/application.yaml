@@ -1,0 +1,6 @@
+server:
+  port: ${PORT:8181}
+
+spring:
+  application:
+    name: config-server
