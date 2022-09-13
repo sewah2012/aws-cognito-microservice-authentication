@@ -1,6 +1,6 @@
-package exceptions;
-import exceptions.errors.FailedAuthenticationException;
-import exceptions.errors.UserAlreadyExistsException;
+package com.sewah.exceptions;
+import com.sewah.exceptions.errors.FailedAuthenticationException;
+import com.sewah.exceptions.errors.UserAlreadyExistsException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,0 +1,20 @@
+server:
+  port: ${PORT:9191}
+
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    config:
+      name: gateway-config
+      uri: http://${CONFIG_SERVER_HOST:localhost:8181}
+      username: ${CONFIG_SERVER_USERNAME:root}
+      password: ${CONFIG_SERVER_PASSWORD:Xtrsa@11}
+      request-connect-timeout: 1000 # 1s
+      request-read-timeout: 5000 # 5s
+      fail-fast: false
+      retry:
+        max-attempts: 6
+        initial-interval: 1000 # 1s
+        max-interval: 2000 # 2s
+        multiplier: 1.1

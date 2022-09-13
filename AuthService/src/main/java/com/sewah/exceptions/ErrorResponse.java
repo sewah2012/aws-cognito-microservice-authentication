@@ -1,4 +1,4 @@
-package exceptions;
+package com.sewah.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

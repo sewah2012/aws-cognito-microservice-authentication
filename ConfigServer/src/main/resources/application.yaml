@@ -4,3 +4,14 @@ server:
 spring:
   application:
     name: config-server
+  profiles:
+    active: native
+  security:
+    user:
+      name: ${CONFIG_SERVER_USERNAME:root}
+      password: ${CONFIG_SERVER_PASSWORD:Xtrsa@11}
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/shared #tells spring where to locate the config files
