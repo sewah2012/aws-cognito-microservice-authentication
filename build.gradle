@@ -35,6 +35,7 @@ subprojects{
         compileOnly "org.mapstruct:mapstruct:$mapStructVersion", "org.projectlombok:lombok:${lombokVersion}"
         annotationProcessor "org.mapstruct:mapstruct-processor:$mapStructVersion", "org.projectlombok:lombok:${lombokVersion}", "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
         annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+//        implementation platform('software.amazon.awssdk:bom:2.15.0')
     }
 
     dependencyManagement {

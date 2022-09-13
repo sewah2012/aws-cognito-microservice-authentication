@@ -1,15 +1,24 @@
 package com.sewah.api;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.sewah.dto.LoginRequest;
+import com.sewah.dto.SignupRequest;
+import com.sewah.services.AuthService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/auth")
+@RequiredArgsConstructor
 public class AuthController {
-    
-    @GetMapping("/user-info")
-    public String userInfo(){
-        return "This is the user info lol";
+    private final AuthService service;
+    @PostMapping("/login")
+    public ResponseEntity<?> userInfo(@RequestBody() LoginRequest loginRequest){
+        return ResponseEntity.ok(service.login(loginRequest));
+    }
+
+    @PostMapping("/signup")
+    public ResponseEntity<?> signup(@RequestBody() SignupRequest request){
+        return ResponseEntity.ok(service.signup(request));
     }
 }
